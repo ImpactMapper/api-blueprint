@@ -4,7 +4,6 @@ module ApiBlueprint
 end
 
 require 'redcarpet'
-require 'api_blueprint/collect/controller_hook'
 require 'api_blueprint/collect/merge'
 require 'api_blueprint/collect/preprocessor'
 require 'api_blueprint/collect/renderer'

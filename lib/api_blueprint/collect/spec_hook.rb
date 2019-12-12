@@ -1,29 +1,7 @@
 require 'fileutils'
 
 module ApiBlueprint::Collect::SpecHook
-  @@controller_name = nil
-  @@action_name = nil
-
-  class << self
-    def controller_name=(name)
-      @@controller_name = name
-    end
-
-    def action_name=(name)
-      @@action_name = name
-    end
-
-    def controller_name
-      @@controller_name
-    end
-
-    def action_name
-      @@action_name
-    end
-  end
-
   def self.included(base)
-
     base.before(:each) do |example|
       @base_example = example
 
@@ -173,8 +151,8 @@ module ApiBlueprint::Collect::SpecHook
         'headers'      => response.headers.to_h
       },
       'route' => {
-        'controller'   => @@controller_name,
-        'action'       => @@action_name
+        'controller'   => request.params['controller'],
+        'action'       => request.params['action']
       }
     }
 
