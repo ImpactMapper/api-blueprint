@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module ApiBlueprint::Collect::SpecHook
   @@controller_name = nil
   @@action_name = nil
@@ -29,6 +31,7 @@ module ApiBlueprint::Collect::SpecHook
         data = {
           'title_parts' => example_description_parts(example)
         }
+        FileUtils.mkdir_p(ApiBlueprint::Collect::Storage.tmp_path)
         File.write(ApiBlueprint::Collect::Storage.spec_dump, data.to_yaml)
       end
     end
