@@ -50,6 +50,8 @@ You get the RSpec-based example listing for every auto-generated API method docu
 
 ### Compile
 
+Note, please add `sass` gem to your dependencies before compiling the documentation.
+
 In order to turn your documentation into ready-to-publish HTML file you should invoke:
 
     rake blueprint:compile

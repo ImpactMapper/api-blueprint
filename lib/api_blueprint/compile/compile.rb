@@ -1,3 +1,5 @@
+require 'sass'
+
 class ApiBlueprint::Compile::Compile
   attr_reader :source, :target, :partials
 
@@ -76,7 +78,7 @@ class ApiBlueprint::Compile::Compile
     return unless layout_html.include?('<script id="blueprint-script"></script>');
 
     text = ApiBlueprint::Compile::Storage.javascripts.collect do |file|
-      Uglifier.compile(File.read(file))
+      File.read(file)
     end.join("\n\n")
 
     layout_html.sub!('<script id="blueprint-script"></script>',
