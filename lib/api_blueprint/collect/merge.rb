@@ -103,12 +103,13 @@ class ApiBlueprint::Collect::Merge
       text = renderer.resource_header(resource)
 
       text += actions.collect do |action, info|
-        text = renderer.action_header(action)
+        txt = renderer.action_header(action)
 
-        text += renderer.description_header(info[:metadata])
-        text += renderer.signature(info[:path], info[:method])
-        text += renderer.parameter_table(info[:params], info[:metadata]['param_definitions'])
-        text += examples(info)
+        txt += renderer.description_header(info[:metadata])
+        txt += renderer.signature(info[:path], info[:method])
+        txt += renderer.parameter_table(info[:params], info[:metadata]['param_definitions'])
+        txt += examples(info)
+        txt.force_encoding(Encoding.default_internal)
       end.join
     end.join
   end
