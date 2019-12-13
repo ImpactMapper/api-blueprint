@@ -1,4 +1,6 @@
 require 'sass'
+require 'nokogiri'
+require 'redcarpet'
 
 class ApiBlueprint::Compile::Compile
   attr_reader :source, :target, :partials

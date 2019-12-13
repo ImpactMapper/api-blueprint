@@ -3,7 +3,6 @@ module ApiBlueprint
   Compile = Module.new
 end
 
-require 'redcarpet'
 require 'api_blueprint/collect/merge'
 require 'api_blueprint/collect/preprocessor'
 require 'api_blueprint/collect/renderer'
